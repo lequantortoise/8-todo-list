@@ -1,5 +1,5 @@
 import React from "react";
-
+import ToDoItem from "./ToDoItem";
 
 function App(){
 
@@ -22,7 +22,7 @@ function App(){
             <input onChange={inputItem} type="text" name={item} value={item}></input>
             <button onClick={addItem}>Add</button>
             <ul>
-                {arrItem.map(itemEach => <li>{itemEach}</li>)}
+                {arrItem.map(itemEach => <ToDoItem textItem={itemEach}/>)}
             </ul>
         </div>
     );
