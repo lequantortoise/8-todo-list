@@ -1,16 +1,13 @@
 import React from "react";
 
 function ToDoItem(props){
-    const [isDone, setIsDone] = React.useState(false);
-    function handleItemClick(){
-        setIsDone((preIsDone)=>{
-            return !preIsDone;
-        });
-    }
 
     return(
-        <div onClick={handleItemClick}>
-            <li style={{textDecoration: isDone? "line-through" : "none"}}>{props.textItem}</li>
+        // <div onClick={props.chooseItemToDelete(props.id)}> // the function chooseItemToDelete call immediately when item render
+        <div onClick={()=>{ // the function chooseItemToDelete call when item is actually clicked.
+            props.chooseItemToDelete(props.id);
+        }}>
+            <li>{props.textItem}</li>
         </div>
     );
 }
