@@ -1,20 +1,14 @@
 import React from "react";
 import ToDoItem from "./ToDoItem";
+import InputArea from "./InputArea";
 
 function App(){
 
-    const [item, setItem] = React.useState("");
-    function inputItem(event){
-        const newValue = event.target.value;
-        setItem(newValue);
-    }
-
     const [arrItem, setArrItem] = React.useState([]);
-    function addItem(){
+    function addItem(item){
         setArrItem((preArrItem) =>{
             return [...preArrItem, item];
         });
-        setItem("");
     }
 
     function deletedItem(id){
@@ -29,8 +23,7 @@ function App(){
 
     return(
         <div>
-            <input onChange={inputItem} type="text" name={item} value={item}></input>
-            <button onClick={addItem}>Add</button>
+            <InputArea onAdd={addItem}/>
             <ul>
                 {arrItem.map((itemEach, index) => (<ToDoItem key={index} 
                                                     id={index}
